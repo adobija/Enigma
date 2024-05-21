@@ -20,7 +20,7 @@ public class Rotor {
     }
 
     public String getScrambler(int indexOfLetter) {
-        return Scrambler.get(indexOfLetter-1);
+        return Scrambler.get(indexOfLetter+(Position-1));
     }
 
     public void setScrambler(HashMap<Integer, String> scrambler) {
