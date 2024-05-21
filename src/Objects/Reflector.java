@@ -26,12 +26,4 @@ public class Reflector {
     public String reflectLetter(String letter){
         return this.Scrambler.get(letter);
     }
-
-    public HashMap<String, String> getScrambler() {
-        return Scrambler;
-    }
-
-    public void setScrambler(HashMap<String, String> scrambler) {
-        Scrambler = scrambler;
-    }
 }

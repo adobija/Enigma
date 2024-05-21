@@ -19,19 +19,17 @@ public class Rotor {
         return tableToReturn;
     }
 
-    public String getScrambler(int indexOfLetter) {
-        return Scrambler.get(indexOfLetter+(Position-1));
+    public String getScrambledLetter(int indexOfLetter) {
+//        RotateRotor();
+        int indexOfLetterToOutput = indexOfLetter+(Position-1);
+        if(indexOfLetterToOutput >= 26){
+            indexOfLetterToOutput = indexOfLetterToOutput - 26;
+        }
+            return Scrambler.get(indexOfLetterToOutput);
     }
 
-    public void setScrambler(HashMap<Integer, String> scrambler) {
-        Scrambler = scrambler;
+    public void RotateRotor(){
+        this.Position = Position+1;
     }
 
-    public int getPosition() {
-        return Position;
-    }
-
-    public void setPosition(int position) {
-        Position = position;
-    }
 }
