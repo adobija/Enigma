@@ -20,19 +20,18 @@ public class Main {
         ArrayList<String> alphabet = new ArrayList<>(Arrays.asList("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"));
 
 
-        String letterToCipher = "E"; // 5 + 7
-        String letterAfterFirstCrypt = R3.getScrambledLetter(alphabet.indexOf(letterToCipher)); // E -> V
-//        String letterAfterSecondCrypt = R2.getScrambledLetter(alphabet.indexOf(letterAfterFirstCrypt)); // V -> D
-//        String letterAfterThirdCrypt = R1.getScrambledLetter(alphabet.indexOf(letterAfterSecondCrypt)); // D -> S
+        String letterToCipher = "R"; // 5 + 7
+        System.out.println(alphabet.indexOf(letterToCipher));
 
-        System.out.println(letterToCipher);
-        System.out.println(alphabet.indexOf(letterToCipher)+1);
-        System.out.println(letterAfterFirstCrypt);
-        System.out.println(alphabet.indexOf(letterAfterFirstCrypt)+1);
-//        System.out.println(letterAfterSecondCrypt);
-//        System.out.println(alphabet.indexOf(letterAfterSecondCrypt)+1);
-//        System.out.println(letterAfterThirdCrypt);
-//        System.out.println(alphabet.indexOf(letterAfterThirdCrypt)+1);
+        int indexOfLetterAfterFirstCrypt = R3.getLetterFromIndex(alphabet.indexOf(letterToCipher)); // 14
+        System.out.println(indexOfLetterAfterFirstCrypt + " index zwroconej literki");
+//        System.out.println(indexOfLetterAfterFirstCrypt);
+        int indexOfLetterAfterSecondCrypt = R2.getLetterFromIndex(indexOfLetterAfterFirstCrypt); // V -> D
+        System.out.println(indexOfLetterAfterSecondCrypt + " index zwroconej literki");
+
+        int indexOfLetterAfterThirdCrypt = R1.getLetterFromIndex(indexOfLetterAfterSecondCrypt); // D -> S
+        System.out.println(indexOfLetterAfterThirdCrypt + " index zwroconej literki");
+
 
 
     }
