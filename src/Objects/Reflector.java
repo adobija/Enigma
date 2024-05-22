@@ -23,7 +23,15 @@ public class Reflector {
         }
         return hashMapToReturn;
     }
-    public String reflectLetter(String letter){
-        return this.Scrambler.get(letter);
+    public DataOfLetter reflectLetter(String letter){
+        int i = 1;
+        for (String x: Scrambler.keySet()) {
+            if(letter.equalsIgnoreCase(x)){
+                break;
+            }
+            i++;
+        }
+        DataOfLetter letterToReturn = new DataOfLetter(Scrambler.get(letter), i-1);
+        return letterToReturn;
     }
 }
