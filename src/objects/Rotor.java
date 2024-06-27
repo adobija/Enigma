@@ -93,7 +93,11 @@ public class Rotor {
     }
 
     public void rotate(){
-        this.position++;
+        if(getPosition()+1 > 25){
+            this.position = 0;
+        }else{
+            this.position++;
+        }
     }
     public int getPosition(){
         return this.position;
