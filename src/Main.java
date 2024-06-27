@@ -20,7 +20,42 @@ public class Main {
 
         ArrayList<String> alphabet = new ArrayList<>(Arrays.asList("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"));
 
-        System.out.println(RA.reflectLetter("E").getLetter());
-
+        String afterRotor3 = R3.getOutputIndex("C");
+        String afterRotor2 = R2.getOutputIndex(afterRotor3);
+        String afterRotor1 = R1.getOutputIndex(afterRotor2);
+        System.out.println(afterRotor1);
+//
+//-> rotor 3 ->w prawej kolumnie szukam literki z indexem # -> sprawdzam jej index w tabeli lewej -> @
+//-> rotor 2 ->w prawej kolumnie szukam literki z indexem @ -> sprawdzam jej index w tabeli lewej -> &
+//-> rotor 1 ->w prawej kolumnie suzkam literki z indexem & -> sprawdzam jej index w tabeli lewej ->
+//
+//
+//
+//        C -> 2 -> get.tablicaZnaków[2][1] ->
+//        F -> # -> i = 0; for(String[] tablica: tablicaZnaków){
+//                  if(tablica[0] == #){
+//                  return i;
+//                  }else{
+//                  i++
+//                  }
+//          } -> 5
+//
+//        5 -> get.tablicaZnaków[5][1] ->
+//        I -> # -> i = 0; for(String[] tablica: tablicaZnaków){
+//                  if(tablica[0] == #){
+//                  return i;
+//                  }else{
+//                  i++
+//                  }
+//          } -> 0
+//
+//        0 -> get.tablicaZnaków[0][1] ->
+//        A -> # -> i = 0; for(String[] tablica: tablicaZnaków){
+//                  if(tablica[0] == #){
+//                  return i;
+//                  }else{
+//                  i++
+//                  }
+//          } -> 0
     }
 }
