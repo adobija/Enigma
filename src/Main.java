@@ -18,16 +18,18 @@ public class Main {
         Reflector RB = new Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT");
         Reflector RC = new Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL");
 
-        ArrayList<String> alphabet = new ArrayList<>(Arrays.asList("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"));
-
-        String letterToInput = "C";
-        DataOfLetter dataOfLetter = new DataOfLetter("C", true);
+        String letterToInput = "Z";
+        DataOfLetter dataOfLetter = new DataOfLetter(letterToInput, true);
         DataOfLetter afterRotor3 = R3.getOutputIndexIn(dataOfLetter);
         DataOfLetter afterRotor2 = R2.getOutputIndexIn(afterRotor3);
         DataOfLetter afterRotor1 = R1.getOutputIndexIn(afterRotor2);
 
         DataOfLetter reflected = RA.reflectLetter(afterRotor1);
-        System.out.println(reflected.getLetter());
 
+        DataOfLetter letterAfterRotor1 = R1.getOutputIndexOut(reflected);
+        DataOfLetter letterAfterRotor2 = R2.getOutputIndexOut(letterAfterRotor1);
+        DataOfLetter letterAfterRotor3 = R3.getOutputIndexOut(letterAfterRotor2);
+
+        System.out.println(letterAfterRotor3.getLetter());
     }
 }

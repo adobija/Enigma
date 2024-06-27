@@ -17,7 +17,7 @@ public class DataOfLetter {
       this.letter = letter;
    }
 
-   public boolean isShouldRotate() {
+   public boolean ShouldRotate() {
       return shouldRotate;
    }
 

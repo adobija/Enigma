@@ -32,6 +32,10 @@ public class Rotor {
         }
     }
     public DataOfLetter getOutputIndexIn(DataOfLetter letter){
+        int positionOnCall = getPosition();
+        if(letter.ShouldRotate()){
+            rotate();
+        }
         String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int indexOfInputLetter = 0;
         for(String x: alphabet){
@@ -51,5 +55,34 @@ public class Rotor {
             }
         }
         return new DataOfLetter(alphabet[indexOfLetterInAlphabet], false);
+    }
+
+    public DataOfLetter getOutputIndexOut(DataOfLetter letter){
+        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        int indexOfInputLetter = 0;
+        for(String x: alphabet){
+            if(x.equalsIgnoreCase(letter.getLetter())){
+                break;
+            }else{
+                indexOfInputLetter++;
+            }
+        }
+        String foundLetter = this.scrambledLetters[indexOfInputLetter][0];
+        int indexOfLetterInAlphabet = 0;
+        for(String[] pairs: this.scrambledLetters){
+            if(pairs[1].equalsIgnoreCase(String.valueOf(foundLetter))){
+                break;
+            }else{
+                indexOfLetterInAlphabet++;
+            }
+        }
+        return new DataOfLetter(alphabet[indexOfLetterInAlphabet], false);
+    }
+
+    public void rotate(){
+        this.position++;
+    }
+    public int getPosition(){
+        return this.position;
     }
 }
