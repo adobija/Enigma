@@ -13,6 +13,12 @@ public class Rotor {
    private int notchToRotateNext;
 
     public Rotor(int position, String scrambledLetters, int notchToRotateNext) {
+        if(position > 25 || position < 0){
+            throw new ArithmeticException("Please input valid position!");
+        }
+        if(notchToRotateNext > 25 || notchToRotateNext < 0){
+            throw new ArithmeticException("Please input valid position!");
+        }
         this.position = position;
         this.notchToRotateNext = notchToRotateNext;
 

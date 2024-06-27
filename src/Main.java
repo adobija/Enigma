@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-
+        //position from 0 - 25
         Rotor R1 = new Rotor(1,  "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 17);
         Rotor R2 = new Rotor(5, "AJDKSIRUXBLHWTMCQGZNPYFVOE", 5);
         Rotor R3 = new Rotor(2,  "BDFHJLCPRTXVZNYEIWGAKMUSQO", 22);
