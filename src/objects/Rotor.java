@@ -36,6 +36,7 @@ public class Rotor {
         if(letter.ShouldRotate()){
             rotate();
         }
+
         String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int indexOfInputLetter = 0;
         for(String x: alphabet){
@@ -54,7 +55,13 @@ public class Rotor {
                 indexOfLetterInAlphabet++;
             }
         }
-        return new DataOfLetter(alphabet[indexOfLetterInAlphabet], false);
+        boolean shouldRotateNext = false;
+        int positionAtEnd = getPosition();
+        if(positionOnCall == positionAtEnd-1 && getNotchToRotateNext() == positionOnCall){
+            shouldRotateNext = true;
+
+        }
+        return new DataOfLetter(alphabet[indexOfLetterInAlphabet], shouldRotateNext);
     }
 
     public DataOfLetter getOutputIndexOut(DataOfLetter letter){
@@ -85,4 +92,9 @@ public class Rotor {
     public int getPosition(){
         return this.position;
     }
+
+    public int getNotchToRotateNext() {
+        return notchToRotateNext;
+    }
+
 }
