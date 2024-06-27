@@ -20,31 +20,7 @@ public class Main {
 
         ArrayList<String> alphabet = new ArrayList<>(Arrays.asList("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"));
 
-        R3.setFastestRotor(true);
-
-
-
-        DataOfLetter letterToCipher = new DataOfLetter("E",5);
-        letterToCipher.setShouldRotate(true);
-
-
-
-        DataOfLetter indexOfLetterAfterFirstCrypt = R3.getLetterFromIndex(alphabet.indexOf(letterToCipher.getLetter()), true); // E -> V
-//        System.out.println(indexOfLetterAfterFirstCrypt + " index zwroconej literki");
-        DataOfLetter indexOfLetterAfterSecondCrypt = R2.getLetterFromIndex(indexOfLetterAfterFirstCrypt.getIndexOfNextToCode(), indexOfLetterAfterFirstCrypt.getShouldRotate()); // V -> D
-//        System.out.println(indexOfLetterAfterSecondCrypt + " index zwroconej literki");
-
-        DataOfLetter indexOfLetterAfterThirdCrypt = R1.getLetterFromIndex(indexOfLetterAfterSecondCrypt.getIndexOfNextToCode(), indexOfLetterAfterSecondCrypt.getShouldRotate()); // D -> S
-//        System.out.println(indexOfLetterAfterThirdCrypt + " index zwroconej literki");
-
-        String letterAfterRotors = indexOfLetterAfterThirdCrypt.getLetter();
-        DataOfLetter returningLetter = RB.reflectLetter(letterAfterRotors);
-
-
-        DataOfLetter letterAfterFirstInReturn = R1.getLetterFromIndex(returningLetter.getIndexOfNextToCode());
-         DataOfLetter letterAfterSecondInReturn = R2.getLetterFromIndex(letterAfterFirstInReturn.getIndexOfNextToCode());
-        DataOfLetter letterAfterThirdInReturn = R3.getLetterFromIndex(letterAfterSecondInReturn.getIndexOfNextToCode());
-        System.out.println(letterAfterThirdInReturn.getLetter());
+        System.out.println(RA.reflectLetter("E").getLetter());
 
     }
 }
