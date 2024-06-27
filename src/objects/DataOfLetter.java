@@ -10,7 +10,7 @@ public class DataOfLetter {
    }
 
    public String getLetter() {
-      return letter;
+      return letter.toUpperCase();
    }
 
    public void setLetter(String letter) {

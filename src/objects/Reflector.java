@@ -12,7 +12,7 @@ public class Reflector {
         this.lettersToReflect = List.of(lettersToReflect.toUpperCase().split(""));
     }
 
-    public DataOfLetter reflectLetter(String letter){
+    public DataOfLetter reflectLetter(DataOfLetter letter){
         HashMap<String, String> dictionaryOfReflections = new HashMap<>();
         String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int i = 0;
@@ -20,7 +20,7 @@ public class Reflector {
             dictionaryOfReflections.put(alphabet[i], x);
             i++;
         }
-        DataOfLetter output = new DataOfLetter(dictionaryOfReflections.get(letter.toUpperCase()), false);
+        DataOfLetter output = new DataOfLetter(dictionaryOfReflections.get(letter.getLetter()), false);
         return output;
     }
 }

@@ -31,11 +31,11 @@ public class Rotor {
             System.out.println("{"+x[0] + ", " + x[1]+"}");
         }
     }
-    public String getOutputIndex(String letter){
+    public DataOfLetter getOutputIndexIn(DataOfLetter letter){
         String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int indexOfInputLetter = 0;
         for(String x: alphabet){
-            if(x.equalsIgnoreCase(letter)){
+            if(x.equalsIgnoreCase(letter.getLetter())){
                 break;
             }else{
                 indexOfInputLetter++;
@@ -50,6 +50,6 @@ public class Rotor {
                 indexOfLetterInAlphabet++;
             }
         }
-        return alphabet[indexOfLetterInAlphabet];
+        return new DataOfLetter(alphabet[indexOfLetterInAlphabet], false);
     }
 }
