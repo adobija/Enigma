@@ -1,11 +1,9 @@
-import Objects.DataOfLetter;
-import Objects.Reflector;
-import Objects.Rotor;
+import objects.DataOfLetter;
+import objects.Reflector;
+import objects.Rotor;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
