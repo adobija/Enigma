@@ -40,5 +40,8 @@ public class Main {
 
         Enigma enigma = new Enigma();
         enigma.start();
+        //todo
+        //change prints
+        //test enigma
     }
 }
