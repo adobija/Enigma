@@ -47,43 +47,21 @@ public class Enigma {
     }
 
     public void start() throws IOException {
-        Reflector RA = new Reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
-        Reflector RB = new Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT");
-        Reflector RC = new Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL");
-
-        boolean flag = true;
+        System.out.println("Welcome to Enigma coder made by Aleksander Dobija");
         Scanner skaner = new Scanner(System.in);
-        do {
-            System.out.println("Welcome to Enigma coder made by Aleksander Dobija");
-            System.out.println("Menu:");
-            System.out.println("To start machine type 'START'");
-            System.out.println("To exit type 'QUIT'");
-            String response = skaner.nextLine();
-            if(response.equalsIgnoreCase("start")){
-                System.out.println("Setting rotors:");
-                System.out.println("Please choose Rotor1 [1], Rotor2 [2], Rotor3 [3], Rotor4 [4], Rotor5 [5]");
-                System.out.println("or write your hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' - letters in your hash shuold be uniqe, write only letters");
 
-                System.out.println("Which should be left rotor:");
-                String responseRotorLeft = skaner.nextLine();
-                setupRotorLeft(responseRotorLeft, skaner);
+        setupRotorLeft(skaner);
+        setupRotorMid(skaner);
+        setupRotorRight(skaner);
+        setupReflector(skaner);
 
-                System.out.println("Which should be middle rotor:");
-                String responseRotorMid = skaner.nextLine();
-                setupRotorMid(responseRotorMid, skaner);
-
-                System.out.println("Which should be right rotor:");
-                String responseRotorRight = skaner.nextLine();
-                setupRotorRight(responseRotorRight, skaner);
-
-                setupReflector(skaner);
-                System.out.println("Insert one letter at once - as original enigma machine");
-                System.out.println("If you want stop coding type '***'");
+        System.out.println("Insert one letter at once - as original enigma machine");
+        System.out.println("If you want stop coding type '***'");
                 boolean shouldBeWorking = true;
                 while (shouldBeWorking){
                     String usersLetter = skaner.nextLine();
                     if(usersLetter.equalsIgnoreCase("***")){
-                        flag = false;
+                        shouldBeWorking = false;
                     }else{
                         int index = getIndexInAlphabet(usersLetter);
 
@@ -92,21 +70,14 @@ public class Enigma {
                         DataOfLetter rotorRight = getRotorRight().getOutputIndexIn(dataOfLetter);
                         DataOfLetter rotorMid = getRotorMid().getOutputIndexIn(rotorRight);
                         DataOfLetter rotorLeft = getRotorLeft().getOutputIndexIn(rotorMid);
-                        DataOfLetter relfector = getReflector().reflectLetter(rotorLeft, getRotorRight());
-                        DataOfLetter returningRotorLeft = getRotorLeft().getOutputIndexOut(relfector);
+                        DataOfLetter reflector = getReflector().reflectLetter(rotorLeft, getRotorLeft());
+                        DataOfLetter returningRotorLeft = getRotorLeft().getOutputIndexOut(reflector);
                         DataOfLetter returningRotorMid = getRotorMid().getOutputIndexOut(returningRotorLeft);
                         DataOfLetter returningRotorRight = getRotorRight().getOutputIndexOut(returningRotorMid);
 
-                        System.out.println("Zaszyfrowana literka to " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
+                        System.out.println("Cyphered letter is " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
                     }
                 }
-
-            } else if (response.equalsIgnoreCase("quit")) {
-                flag = false;
-                System.out.println("Shutting down...");
-            }
-        }while (flag);
-        System.out.println("Shutting down...");
     }
 
     public int getIndexInAlphabet(String letter){
@@ -133,7 +104,7 @@ public class Enigma {
         System.out.println("or write your custom reflector - type hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' \nletters in your hash should be unique,\nwrite only letters");
         System.out.println("in example A will be reflected to V, B to Z, C to B, D to R...");
         String reflectorResponse = skaner.nextLine();
-        switch (reflectorResponse){
+        switch (reflectorResponse.toUpperCase()){
             case "A":
                 setReflector(configReflector("EJMZALYXVBWFCRQUONTSPIKHGD"));
                 break;
@@ -174,7 +145,11 @@ public class Enigma {
         return hash;
     }
 
-    public void setupRotorRight(String response, Scanner skaner) throws IOException {
+    public void setupRotorRight(Scanner skaner) throws IOException {
+        System.out.println("Setting right rotor:");
+        System.out.println("Please choose Rotor1 [1], Rotor2 [2], Rotor3 [3], Rotor4 [4], Rotor5 [5]");
+        System.out.println("or write your hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' - letters in your hash shuold be uniqe, write only letters");
+        String response = skaner.nextLine();
         switch (response){
             case "1":
                 setRotorRight(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
@@ -198,7 +173,11 @@ public class Enigma {
         System.out.println("Right rotor has been successfully set!");
     }
 
-    public void setupRotorMid(String response, Scanner skaner) throws IOException {
+    public void setupRotorMid(Scanner skaner) throws IOException {
+        System.out.println("Setting middle rotor:");
+        System.out.println("Please choose Rotor1 [1], Rotor2 [2], Rotor3 [3], Rotor4 [4], Rotor5 [5]");
+        System.out.println("or write your hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' - letters in your hash shuold be uniqe, write only letters");
+        String response = skaner.nextLine();
         switch (response){
             case "1":
                 setRotorMid(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
@@ -222,7 +201,11 @@ public class Enigma {
         System.out.println("Middle rotor has been successfully set!");
     }
 
-    public void setupRotorLeft(String response, Scanner skaner) throws IOException {
+    public void setupRotorLeft(Scanner skaner) throws IOException {
+        System.out.println("Setting left rotor:");
+        System.out.println("Please choose Rotor1 [1], Rotor2 [2], Rotor3 [3], Rotor4 [4], Rotor5 [5]");
+        System.out.println("or write your hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' - letters in your hash shuold be uniqe, write only letters");
+        String response = skaner.nextLine();
         switch (response){
             case "1":
                 setRotorLeft(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
