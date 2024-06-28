@@ -1,10 +1,5 @@
 package objects;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Locale;
-
 public class Rotor {
    private int position;
 
@@ -25,9 +20,6 @@ public class Rotor {
         this.notchToRotateNext = notchToRotateNext;
         this.scrambledLetters = new String[26][2];
         this.lettersToCypher = lettersToCypher;
-//        for (int i = position; i<= 25; i++){
-//            this.scrambledLetters[i] = new String[]{alphabet[i], arrayOfScrambledLetters[i]};
-//        }
         generateScrablerToPosition(position);
     }
     private String getLettersToCypher(){
@@ -60,19 +52,8 @@ public class Rotor {
         if(letter.ShouldRotate()){
             rotate();
         }
-//        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int indexOfInputLetter = letter.getIndexOfNextLetter();
-//        int indexOfInputLetter = 0;
-//        for(String x: alphabet){
-//            if(x.equalsIgnoreCase(letter.getLetter())){
-//                break;
-//            }else{
-//                indexOfInputLetter++;
-//            }
-//        }
-        System.out.println("rzad brany pod uwage to  " + indexOfInputLetter);
         String foundLetter = this.scrambledLetters[indexOfInputLetter][1];
-        System.out.println("odpowiadająca jej literka w sramblerze to " + foundLetter);
         int indexOfLetterInAlphabet = 0;
         for(String[] pairs: this.scrambledLetters){
             if(pairs[0].equalsIgnoreCase(String.valueOf(foundLetter))){
@@ -81,12 +62,10 @@ public class Rotor {
                 indexOfLetterInAlphabet++;
             }
         }
-        System.out.println("ta sama literka co wyżej w lewej kolumnie ma index " + indexOfLetterInAlphabet);
         boolean shouldRotateNext = false;
         int positionAtEnd = getPosition();
         if(positionOnCall == positionAtEnd-1 && getNotchToRotateNext() == positionOnCall){
             shouldRotateNext = true;
-
         }
         DataOfLetter outputLetter = new DataOfLetter(foundLetter, shouldRotateNext);
         outputLetter.setIndexOfNextLetter(indexOfLetterInAlphabet);
@@ -94,35 +73,29 @@ public class Rotor {
     }
 
     public DataOfLetter getOutputIndexOut(DataOfLetter letter){
-        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
         int indexOfInputLetter = letter.getIndexOfNextLetter();
-//        int indexOfInputLetter = 0;
-//        for(String x: alphabet){
-//            if(x.equalsIgnoreCase(letter.getLetter())){
-//                break;
-//            }else{
-//                indexOfInputLetter++;
-//            }
-//        }
-        System.out.println("rzad brany pod uwage to  " + indexOfInputLetter);
+
         String foundLetter = this.scrambledLetters[indexOfInputLetter][0];
-        System.out.println("odpowiadająca jej literka w sramblerze to lewa kolumna to " + foundLetter);
-        int indexOfLetterInAlphabet = 0;
+
+        int indexOfLetterInRotorsAlphabet = 0;
+
         for(String[] pairs: this.scrambledLetters){
             if(pairs[1].equalsIgnoreCase(String.valueOf(foundLetter))){
                 break;
             }else{
-                indexOfLetterInAlphabet++;
+                indexOfLetterInRotorsAlphabet++;
             }
         }
-        System.out.println("ta sama literka co wyżej w prawej kolumnie ma index " + indexOfLetterInAlphabet);
         DataOfLetter outputLetter = new DataOfLetter(foundLetter, false);
-        outputLetter.setIndexOfNextLetter(indexOfLetterInAlphabet);
+        outputLetter.setIndexOfNextLetter(indexOfLetterInRotorsAlphabet);
         return outputLetter;
     }
 
     public void rotate(){
-        generateScrablerToPosition(getPosition()+1);
+        int prevPosition = getPosition();
+        this.position++;
+        generateScrablerToPosition(getPosition());
+        System.out.println("Rotating from " + prevPosition + " to " + getPosition()+ " !");
     }
     public int getPosition(){
         return this.position;
@@ -134,10 +107,6 @@ public class Rotor {
 
     public String[][] getScrambledLetters() {
         return scrambledLetters;
-    }
-
-    public void setScrambledLetters(String[][] scrambledLetters) {
-        this.scrambledLetters = scrambledLetters;
     }
 
 }
