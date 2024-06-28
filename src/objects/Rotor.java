@@ -94,6 +94,9 @@ public class Rotor {
     public void rotate(){
         int prevPosition = getPosition();
         this.position++;
+        if(getPosition() >= 26){
+            this.position = 0;
+        }
         generateScrablerToPosition(getPosition());
         System.out.println("Rotating from " + prevPosition + " to " + getPosition()+ " !");
     }
