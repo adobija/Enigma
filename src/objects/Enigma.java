@@ -174,8 +174,8 @@ public class Enigma {
         return hash;
     }
 
-    public void setupRotorRight(String responseRight, Scanner skaner) throws IOException {
-        switch (responseRight){
+    public void setupRotorRight(String response, Scanner skaner) throws IOException {
+        switch (response){
             case "1":
                 setRotorRight(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
                 break;
@@ -192,14 +192,14 @@ public class Enigma {
                 setRotorRight(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
             case "default":
-                setRotorRight(configRotor(responseRight, skaner));
+                setRotorRight(configRotor(response, skaner));
                 break;
         }
         System.out.println("Right rotor has been successfully set!");
     }
 
-    public void setupRotorMid(String responseMid, Scanner skaner) throws IOException {
-        switch (responseMid){
+    public void setupRotorMid(String response, Scanner skaner) throws IOException {
+        switch (response){
             case "1":
                 setRotorMid(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
                 break;
@@ -216,14 +216,14 @@ public class Enigma {
                 setRotorMid(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
             case "default":
-                setRotorMid(configRotor(responseMid, skaner));
+                setRotorMid(configRotor(response, skaner));
                 break;
         }
         System.out.println("Middle rotor has been successfully set!");
     }
 
-    public void setupRotorLeft(String responseLeft, Scanner skaner) throws IOException {
-        switch (responseLeft){
+    public void setupRotorLeft(String response, Scanner skaner) throws IOException {
+        switch (response){
             case "1":
                 setRotorLeft(configRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ",17, skaner));
                 break;
@@ -240,7 +240,7 @@ public class Enigma {
                 setRotorLeft(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
             case "default":
-                setRotorLeft(configRotor(responseLeft, skaner));
+                setRotorLeft(configRotor(response, skaner));
                 break;
         }
         System.out.println("Left rotor has been successfully set!");
@@ -249,15 +249,16 @@ public class Enigma {
     public Rotor configRotor(String hash, Scanner skaner) throws IOException{
         System.out.println("Insert position (0-25):");
         int position = skaner.nextInt();
+        skaner.nextLine();
         System.out.println("Insert notch of turning next rotor (0-25):");
         int notchOfTurningNext = skaner.nextInt();
+        skaner.nextLine();
         return new Rotor(position, checkHash(hash), notchOfTurningNext);
     }
     public Rotor configRotor(String hash, int notchOfTurningNext, Scanner skaner) throws IOException{
         System.out.println("Insert position (0-25):");
         int position = skaner.nextInt();
-        Rotor createdRotor = new Rotor(position, checkHash(hash), notchOfTurningNext);
-        createdRotor.printScrambler();
-        return createdRotor;
+        skaner.nextLine();
+        return new Rotor(position, checkHash(hash), notchOfTurningNext);
     }
 }
