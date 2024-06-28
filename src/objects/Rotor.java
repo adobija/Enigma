@@ -98,7 +98,6 @@ public class Rotor {
             this.position = 0;
         }
         generateScrablerToPosition(getPosition());
-        System.out.println("Rotating from " + prevPosition + " to " + getPosition()+ " !");
     }
     public int getPosition(){
         return this.position;
