@@ -10,7 +10,7 @@ public class Main {
         //position from 0 - 25
         Rotor R1 = new Rotor(8,  "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 17);
         Rotor R2 = new Rotor(3, "AJDKSIRUXBLHWTMCQGZNPYFVOE", 5);
-        Rotor R3 = new Rotor(6,  "BDFHJLCPRTXVZNYEIWGAKMUSQO", 22);
+        Rotor R3 = new Rotor(5,  "BDFHJLCPRTXVZNYEIWGAKMUSQO", 22);
         Rotor R4 = new Rotor(0,  "ESOVPZJAYQUIRHXLNFTGKDCMWB", 10);
         Rotor R5 = new Rotor(0,  "VZBRGITYUPSDNHLXAWMJQOFECK", 25);
 

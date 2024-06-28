@@ -122,7 +122,7 @@ public class Rotor {
     }
 
     public void rotate(){
-//        this.position++;
+        generateScrablerToPosition(getPosition()+1);
     }
     public int getPosition(){
         return this.position;
