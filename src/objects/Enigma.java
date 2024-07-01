@@ -54,14 +54,40 @@ public class Enigma {
         setupRotorMid(skaner);
         setupRotorRight(skaner);
         setupReflector(skaner);
-
+        System.console().flush();
         System.out.println("Insert one letter at once - as original enigma machine");
         System.out.println("If you want stop coding type '***'");
+        System.out.println("To check settings type 'settings'");
                 boolean shouldBeWorking = true;
                 while (shouldBeWorking){
+
                     String usersLetter = skaner.nextLine();
                     if(usersLetter.equalsIgnoreCase("***")){
+                        System.console().flush();
                         shouldBeWorking = false;
+                    }else if (usersLetter.equalsIgnoreCase("settings")){
+                        System.console().flush();
+                        System.out.println("*".repeat(100));
+                        System.out.println("Settings of: ");
+                        System.out.println();
+                        System.out.println("Rotor left");
+                        System.out.println("Starting position: " + getRotorLeft().getPositionOnStart());
+                        System.out.println("Notch to rotate next rotor " + getRotorLeft().getNotchToRotateNext());
+                        System.out.println("Hash of rotor: " + getRotorLeft().getHash());
+                        System.out.println();
+                        System.out.println("Rotor middle");
+                        System.out.println("Starting position: " + getRotorMid().getPositionOnStart());
+                        System.out.println("Notch to rotate next rotor " + getRotorMid().getNotchToRotateNext());
+                        System.out.println("Hash of rotor: " + getRotorMid().getHash());
+                        System.out.println();
+                        System.out.println("Rotor right");
+                        System.out.println("Starting position: " + getRotorRight().getPositionOnStart());
+                        System.out.println("Notch to rotate next rotor " + getRotorRight().getNotchToRotateNext());
+                        System.out.println("Hash of rotor: " + getRotorRight().getHash());
+                        System.out.println();
+                        System.out.println("Reflector: ");
+                        System.out.println(getReflector().getHash());
+                        System.out.println("*".repeat(100));
                     }else{
                         int index = getIndexInAlphabet(usersLetter);
 
@@ -75,7 +101,7 @@ public class Enigma {
                         DataOfLetter returningRotorMid = getRotorMid().getOutputIndexOut(returningRotorLeft);
                         DataOfLetter returningRotorRight = getRotorRight().getOutputIndexOut(returningRotorMid);
 
-                        System.out.println("Cyphered letter is " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
+                        System.out.println("Cyphered letter -> " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
                     }
                 }
     }
@@ -166,11 +192,10 @@ public class Enigma {
             case "5":
                 setRotorRight(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
-            case "default":
+            default:
                 setRotorRight(configRotor(response, skaner));
                 break;
         }
-        System.out.println("Right rotor has been successfully set!");
     }
 
     public void setupRotorMid(Scanner skaner) throws IOException {
@@ -194,7 +219,7 @@ public class Enigma {
             case "5":
                 setRotorMid(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
-            case "default":
+            default:
                 setRotorMid(configRotor(response, skaner));
                 break;
         }
@@ -222,10 +247,11 @@ public class Enigma {
             case "5":
                 setRotorLeft(configRotor("VZBRGITYUPSDNHLXAWMJQOFECK",25, skaner));
                 break;
-            case "default":
+           default:
                 setRotorLeft(configRotor(response, skaner));
                 break;
         }
+
         System.out.println("Left rotor has been successfully set!");
     }
 
@@ -236,12 +262,16 @@ public class Enigma {
         System.out.println("Insert notch of turning next rotor (0-25):");
         int notchOfTurningNext = skaner.nextInt();
         skaner.nextLine();
-        return new Rotor(position, checkHash(hash), notchOfTurningNext);
+        Rotor rotor = new Rotor(position, checkHash(hash), notchOfTurningNext);
+        rotor.setPositionOnStart(position);
+        return rotor;
     }
     public Rotor configRotor(String hash, int notchOfTurningNext, Scanner skaner) throws IOException{
         System.out.println("Insert position (0-25):");
         int position = skaner.nextInt();
         skaner.nextLine();
-        return new Rotor(position, checkHash(hash), notchOfTurningNext);
+        Rotor rotor = new Rotor(position, checkHash(hash), notchOfTurningNext);
+        rotor.setPositionOnStart(position);
+        return rotor;
     }
 }

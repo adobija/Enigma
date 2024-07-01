@@ -9,6 +9,35 @@ public class Rotor {
 
    private String lettersToCypher;
 
+   private int positionOnStart;
+
+   private String hash;
+
+    public int getPositionOnStart() {
+        return positionOnStart;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public void setScrambledLetters(String[][] scrambledLetters) {
+        this.scrambledLetters = scrambledLetters;
+    }
+
+    public void setNotchToRotateNext(int notchToRotateNext) {
+        this.notchToRotateNext = notchToRotateNext;
+    }
+
+    public void setLettersToCypher(String lettersToCypher) {
+        this.lettersToCypher = lettersToCypher;
+    }
+
+    public void setPositionOnStart(int positionOnStart) {
+        this.positionOnStart = positionOnStart;
+    }
+
+
     public Rotor(int position, String lettersToCypher, int notchToRotateNext) {
         if(position > 25 || position < 0){
             throw new ArithmeticException("Please input valid position!");
@@ -20,6 +49,7 @@ public class Rotor {
         this.notchToRotateNext = notchToRotateNext;
         this.scrambledLetters = new String[26][2];
         this.lettersToCypher = lettersToCypher;
+        this.hash = lettersToCypher;
         generateScrablerToPosition(position);
     }
     private String getLettersToCypher(){
@@ -109,6 +139,9 @@ public class Rotor {
 
     public String[][] getScrambledLetters() {
         return scrambledLetters;
+    }
+    public String getHash (){
+        return this.hash;
     }
 
 }

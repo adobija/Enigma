@@ -5,8 +5,10 @@ import java.util.List;
 
 public class Reflector {
    private List<String> lettersToReflect;
+   private String hash;
     public Reflector(String lettersToReflect) {
         this.lettersToReflect = List.of(lettersToReflect.toUpperCase().split(""));
+        this.hash = lettersToReflect;
     }
 
     public DataOfLetter reflectLetter(DataOfLetter letter, Rotor rotorBeforeReflector){
@@ -28,5 +30,9 @@ public class Reflector {
             }
         }
         return output;
+    }
+
+    public String getHash() {
+        return hash;
     }
 }
