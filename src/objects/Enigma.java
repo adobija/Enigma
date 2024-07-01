@@ -52,6 +52,10 @@ public class Enigma {
     }
 
     public void addCodedMessage(String x) {
+        String[] testSize = getCodedMessage().split("");
+        if(testSize.length%5 == 0){
+            this.codedMessage += " ";
+        }
         this.codedMessage += x;
     }
 
