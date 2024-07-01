@@ -10,6 +10,7 @@ public class Enigma {
     private Rotor rotorMid;
     private Rotor rotorLeft;
     private Reflector reflector;
+    private String codedMessage;
 
     public Enigma() {
     }
@@ -46,7 +47,16 @@ public class Enigma {
         this.reflector = reflector;
     }
 
+    public String getCodedMessage() {
+        return codedMessage;
+    }
+
+    public void addCodedMessage(String x) {
+        this.codedMessage += x;
+    }
+
     public void start() throws IOException {
+        this.codedMessage = "";
         System.out.println("Welcome to Enigma coder made by Aleksander Dobija");
         Scanner skaner = new Scanner(System.in);
 
@@ -55,9 +65,10 @@ public class Enigma {
         setupRotorRight(skaner);
         setupReflector(skaner);
         System.console().flush();
-        System.out.println("Insert one letter at once - as original enigma machine");
+        System.out.println("Insert one letter or type whole message!");
         System.out.println("If you want stop coding type '***'");
-        System.out.println("To check settings type 'settings'");
+        System.out.println("To check settings type '$settings$'");
+        System.out.println("To print your whole coded message type '$output$'");
                 boolean shouldBeWorking = true;
                 while (shouldBeWorking){
 
@@ -65,7 +76,7 @@ public class Enigma {
                     if(usersLetter.equalsIgnoreCase("***")){
                         System.console().flush();
                         shouldBeWorking = false;
-                    }else if (usersLetter.equalsIgnoreCase("settings")){
+                    }else if (usersLetter.equalsIgnoreCase("$settings$")){
                         System.console().flush();
                         System.out.println("*".repeat(100));
                         System.out.println("Settings of: ");
@@ -88,20 +99,29 @@ public class Enigma {
                         System.out.println("Reflector: ");
                         System.out.println(getReflector().getHash());
                         System.out.println("*".repeat(100));
-                    }else{
-                        int index = getIndexInAlphabet(usersLetter);
+                    } else if (usersLetter.equalsIgnoreCase("$output$")) {
+                        System.out.println(getCodedMessage());
+                    } else{
+                        String[] arrayOfLetters = usersLetter.split("");
+                        for (String x: arrayOfLetters){
+                            if(!x.matches("[A-Za-z]")){
+                                continue;
+                            }
+                            int index = getIndexInAlphabet(x);
 
-                        DataOfLetter dataOfLetter = new DataOfLetter(usersLetter, true);
-                        dataOfLetter.setIndexOfNextLetter(index);
-                        DataOfLetter rotorRight = getRotorRight().getOutputIndexIn(dataOfLetter);
-                        DataOfLetter rotorMid = getRotorMid().getOutputIndexIn(rotorRight);
-                        DataOfLetter rotorLeft = getRotorLeft().getOutputIndexIn(rotorMid);
-                        DataOfLetter reflector = getReflector().reflectLetter(rotorLeft, getRotorLeft());
-                        DataOfLetter returningRotorLeft = getRotorLeft().getOutputIndexOut(reflector);
-                        DataOfLetter returningRotorMid = getRotorMid().getOutputIndexOut(returningRotorLeft);
-                        DataOfLetter returningRotorRight = getRotorRight().getOutputIndexOut(returningRotorMid);
+                            DataOfLetter dataOfLetter = new DataOfLetter(x, true);
+                            dataOfLetter.setIndexOfNextLetter(index);
+                            DataOfLetter rotorRight = getRotorRight().getOutputIndexIn(dataOfLetter);
+                            DataOfLetter rotorMid = getRotorMid().getOutputIndexIn(rotorRight);
+                            DataOfLetter rotorLeft = getRotorLeft().getOutputIndexIn(rotorMid);
+                            DataOfLetter reflector = getReflector().reflectLetter(rotorLeft, getRotorLeft());
+                            DataOfLetter returningRotorLeft = getRotorLeft().getOutputIndexOut(reflector);
+                            DataOfLetter returningRotorMid = getRotorMid().getOutputIndexOut(returningRotorLeft);
+                            DataOfLetter returningRotorRight = getRotorRight().getOutputIndexOut(returningRotorMid);
 
-                        System.out.println("Cyphered letter -> " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
+                            System.out.println("Cyphered letter -> " + getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
+                            addCodedMessage(getLetterFromAlphabetByIndex(returningRotorRight.getIndexOfNextLetter()));
+                        }
                     }
                 }
     }
