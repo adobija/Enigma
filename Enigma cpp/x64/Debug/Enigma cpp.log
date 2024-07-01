@@ -1,2 +1,36 @@
-﻿  Enigma cpp.cpp
-  Enigma cpp.vcxproj -> C:\Users\endzio\Desktop\github\Enigma cpp\x64\Debug\Enigma cpp.exe
+﻿  DataOfLetter.h
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(33,10): error C2365: "DataOfLetter::shouldRotate": zmiana definicji; definicja poprzednia była "składowa danych"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,9): error C2059: błąd składniowy: „return”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,28): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2059: błąd składniowy: „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2143: błąd składniowy: brakuje „;” przed „}”
+  Enigma cpp.cpp
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(33,10): error C2365: "DataOfLetter::shouldRotate": zmiana definicji; definicja poprzednia była "składowa danych"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,9): error C2059: błąd składniowy: „return”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,28): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2059: błąd składniowy: „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2143: błąd składniowy: brakuje „;” przed „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\Rotor.h(101,20): error C2039: „ShouldRotate”: nie jest składową elementu „DataOfLetter”
+  Enigma.h
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(33,10): error C2365: "DataOfLetter::shouldRotate": zmiana definicji; definicja poprzednia była "składowa danych"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,9): error C2059: błąd składniowy: „return”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,28): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2059: błąd składniowy: „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2143: błąd składniowy: brakuje „;” przed „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\Rotor.h(101,20): error C2039: „ShouldRotate”: nie jest składową elementu „DataOfLetter”
+  Plugboard.h
+  Reflector.h
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(33,10): error C2365: "DataOfLetter::shouldRotate": zmiana definicji; definicja poprzednia była "składowa danych"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,9): error C2059: błąd składniowy: „return”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,28): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2059: błąd składniowy: „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2143: błąd składniowy: brakuje „;” przed „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\Rotor.h(101,20): error C2039: „ShouldRotate”: nie jest składową elementu „DataOfLetter”
+  Rotor.h
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(33,10): error C2365: "DataOfLetter::shouldRotate": zmiana definicji; definicja poprzednia była "składowa danych"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,9): error C2059: błąd składniowy: „return”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(34,28): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2059: błąd składniowy: „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\DataOfLetter.h(36,1): error C2143: błąd składniowy: brakuje „;” przed „}”
+C:\Users\endzio\Desktop\github\Enigma cpp\Rotor.h(101,20): error C2039: „ShouldRotate”: nie jest składową elementu „DataOfLetter”
+  Generowanie kodu...

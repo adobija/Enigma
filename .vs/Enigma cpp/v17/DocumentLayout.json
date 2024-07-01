@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|solutionrelative:Rotor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|solutionrelative:Enigma.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|solutionrelative:Enigma cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|solutionrelative:Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83FFDB02-9E12-4119-868D-E6B95458389E}|Enigma cpp.vcxproj|solutionrelative:Rotor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Rotor.cpp",
-              "DocumentMoniker": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp",
-              "RelativeDocumentMoniker": "Rotor.cpp",
-              "ToolTip": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp",
-              "RelativeToolTip": "Rotor.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Title": "Enigma.cpp",
+              "DocumentMoniker": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma.cpp",
+              "RelativeDocumentMoniker": "Enigma.cpp",
+              "ToolTip": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma.cpp",
+              "RelativeToolTip": "Enigma.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-07-01T18:24:54.532Z",
+              "WhenOpened": "2024-07-01T21:00:03.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Enigma cpp.cpp",
-              "DocumentMoniker": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma cpp.cpp",
-              "RelativeDocumentMoniker": "Enigma cpp.cpp",
-              "ToolTip": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Enigma cpp.cpp",
-              "RelativeToolTip": "Enigma cpp.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Main.cpp",
+              "DocumentMoniker": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Main.cpp",
+              "RelativeDocumentMoniker": "Main.cpp",
+              "ToolTip": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Main.cpp",
+              "RelativeToolTip": "Main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-07-01T18:23:39.98Z",
+              "WhenOpened": "2024-07-01T20:55:47.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rotor.cpp",
+              "DocumentMoniker": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp",
+              "RelativeDocumentMoniker": "Rotor.cpp",
+              "ToolTip": "C:\\Users\\endzio\\Desktop\\github\\Enigma cpp\\Rotor.cpp",
+              "RelativeToolTip": "Rotor.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-01T20:55:37.941Z",
               "EditorCaption": ""
             }
           ]
