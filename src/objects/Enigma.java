@@ -60,7 +60,7 @@ public class Enigma {
     }
 
     public void start() throws IOException {
-        this.codedMessage = "";
+        this.codedMessage = " ";
         System.out.println("Welcome to Enigma coder made by Aleksander Dobija");
         Scanner skaner = new Scanner(System.in);
 
