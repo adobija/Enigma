@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <sstream>
+#include <conio.h> 
 using namespace std;
 
 class DataOfLetter {
@@ -352,13 +353,30 @@ public:
         codedMessage += x;
     }
 
+    void clearAndCredit() {
+        system("cls");
+        cout << "Welcome to Enigma coder made by Aleksander Dobija" << endl << endl;
+    }
+
+    void clearAndHelp() {
+        cout << "Insert one letter or type whole message!" << endl;
+        cout << "If you want stop coding type '***'" << endl;
+        cout << "To check settings type '$settings$'" << endl;
+        cout << "To print your whole coded message type '$output$'" << endl;
+        cout << "To get help type '$help$'" << endl;
+    }
+
     void start() {
         codedMessage = " ";
-        cout << "Welcome to Enigma coder made by Aleksander Dobija" << endl;
+        clearAndCredit();
         setupRotorLeft();
+        clearAndCredit();
         setupRotorMid();
+        clearAndCredit();
         setupRotorRight();
+        clearAndCredit();
         setupReflector();
+        clearAndCredit();
         cout << "Setup plugboard:" << endl;
         cout << "Type letters to swap e.g. 'AB GH IO'" << endl;
         cout << "A will be swapped with B and B with A, G -> H and H -> G..." << endl;
@@ -371,11 +389,8 @@ public:
         else {
             plugboard = new Plugboard();
         }
-
-        cout << "Insert one letter or type whole message!" << endl;
-        cout << "If you want stop coding type '***'" << endl;
-        cout << "To check settings type '$settings$'" << endl;
-        cout << "To print your whole coded message type '$output$'" << endl;
+        clearAndCredit();
+        clearAndHelp();
 
         bool shouldBeWorking = true;
         while (shouldBeWorking) {
@@ -385,10 +400,15 @@ public:
                 shouldBeWorking = false;
             }
             else if (usersLetter == "$settings$") {
+                clearAndCredit();
                 printSettings();
             }
             else if (usersLetter == "$output$") {
+                clearAndCredit();
                 cout << getCodedMessage() << endl;
+            }
+            else if (usersLetter == "$help$") {
+                clearAndHelp();
             }
             else {
                 for (const auto& x : usersLetter) {
@@ -403,7 +423,9 @@ public:
                     DataOfLetter rotorRight = getRotorRight()->getOutputIndexIn(dataOfLetter);
                     DataOfLetter rotorMid = getRotorMid()->getOutputIndexIn(rotorRight);
                     DataOfLetter rotorLeft = getRotorLeft()->getOutputIndexIn(rotorMid);
+
                     DataOfLetter reflector = getReflector()->reflectLetter(rotorLeft, getRotorLeft());
+
                     DataOfLetter returningRotorLeft = getRotorLeft()->getOutputIndexOut(reflector);
                     DataOfLetter returningRotorMid = getRotorMid()->getOutputIndexOut(returningRotorLeft);
                     DataOfLetter returningRotorRight = getRotorRight()->getOutputIndexOut(returningRotorMid);
