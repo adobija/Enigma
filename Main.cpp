@@ -467,17 +467,17 @@ private:
         cout << "or write your custom reflector - type hash e.g. 'VZBRGITYUPSDNHLXAWMJQOFECK' \nletters in your hash should be unique,\nwrite only letters" << endl;
         string reflectorResponse;
         getline(cin, reflectorResponse);
-        if (reflectorResponse == "A") {
+        if (reflectorResponse == "A" || reflectorResponse == "a") {
             setReflector(new Reflector("EJMZALYXVBWFCRQUONTSPIKHGD"));
         }
-        else if (reflectorResponse == "B") {
+        else if (reflectorResponse == "B" || reflectorResponse == "b") {
             setReflector(new Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT"));
         }
-        else if (reflectorResponse == "C") {
+        else if (reflectorResponse == "C" || reflectorResponse == "c") {
             setReflector(new Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL"));
         }
         else {
-            setReflector(new Reflector(reflectorResponse));
+            setReflector(new Reflector(checkHash(reflectorResponse)));
         }
         cout << "Reflector has been successfully set!" << endl;
     }
